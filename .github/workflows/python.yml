@@ -1,0 +1,25 @@
+name: Python checker
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Python version
+        run: python3 --version
+        
+      - name: Get dependencies 
+        run: pip install -r requirements.txt
+
+      - name: Installing and running RUFF LINT
+        run: |
+          pip install ruff
+          ruff --format=github --target-version=py37 .
+        continue-on-error: true
