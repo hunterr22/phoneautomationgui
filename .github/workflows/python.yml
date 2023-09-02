@@ -14,6 +14,9 @@ jobs:
       
       - name: Python version
         run: python3 --version
+
+      - name: Pip freeze
+        run: pip freeze > requirements.txt
         
       - name: Get dependencies 
         run: pip install -r requirements.txt
