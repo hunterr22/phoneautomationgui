@@ -89,9 +89,10 @@ def add():
     window.close()
 
 
-def main():
+def main(email, password):
+    print(email, password)
     layout = [
-        [sg.Text("Message for client: ", size=(15, 1)), sg.Input(key="_client_", do_not_clear=True),
+        [sg.Text("Message for client: ", size=(15, 1)), sg.Multiline(size=(50, 3), key="_client_", do_not_clear=True),
          sg.Button("Enter", key="pass", size=(23, 1))],
         [sg.Text("")],
         [sg.Text("DAYS OF THE WEEK", size=(100, 1), justification='c')],
@@ -115,10 +116,92 @@ def main():
         if event == "del":
             delete()
         if event == "pass":
-            if values["monday"]:
+            if values["monday"]:   # Start here Take new away and test End goal is to make each message an email!!
+                print("")
+                print("SUBJECT: Mondays Clients")
                 print(values["_client_"])
+                print("")
+                with open("monday.txt", "r") as file:
+                    li = file.readlines()
+                    rep = []
+                    for x in li:
+                        rep.append(x.replace("\n", ""))
+                    for i in rep:
+                        print(i)
+            if values["tuesday"]:
+                print("")
+                print("SUBJECT: Tuesday Clients")
+                print(values["_client_"])
+                print("")
+                with open("tuesday.txt", "r") as file:
+                    li = file.readlines()
+                    rep = []
+                    for x in li:
+                        rep.append(x.replace("\n", ""))
+                    for i in rep:
+                        print(i)
+            if values["wednesday"]:
+                print("")
+                print("SUBJECT: Wednesday Clients")
+                print(values["_client_"])
+                print("")
+                with open("wednesday.txt", "r") as file:
+                    li = file.readlines()
+                    rep = []
+                    for x in li:
+                        rep.append(x.replace("\n", ""))
+                    for i in rep:
+                        print(i)
+            if values["thursday"]:
+                print("")
+                print("SUBJECT: Thursday Clients")
+                print(values["_client_"])
+                print("")
+                with open("thursday.txt", "r") as file:
+                    li = file.readlines()
+                    rep = []
+                    for x in li:
+                        rep.append(x.replace("\n", ""))
+                    for i in rep:
+                        print(i)
+            if values["friday"]:
+                print("")
+                print("SUBJECT: Friday Clients")
+                print(values["_client_"])
+                print("")
+                with open("friday.txt", "r") as file:
+                    li = file.readlines()
+                    rep = []
+                    for x in li:
+                        rep.append(x.replace("\n", ""))
+                    for i in rep:
+                        print(i)
+    window.close()
+
+
+def login():
+    layout = [
+        [sg.Text("")],
+        [sg.Text("EMAIL: ", size=(15, 1))],
+        [sg.Input(key="_EMAIL_", do_not_clear=True)],
+        [sg.Text("PASSWORD: ", size=(15, 1))],
+        [sg.Input(key="_password_", do_not_clear=True)],
+        [sg.Text("")],
+        [sg.Button("Enter", size=(23, 1), key="pass")],
+    ]
+    window = sg.Window("EMAIL LOGIN", element_justification="c", text_justification="c", size=(600, 200), modal=True)\
+        .Layout(layout)
+    while True:
+        event, values = window.read()
+        if event == "Exit" or event == sg.WIN_CLOSED:
+            break
+        if event == "pass":
+            email = values["_EMAIL_"]
+            password = values["_password_"]
+            main(email, password)
+
     window.close()
 
 
 if __name__ == "__main__":
-    main()
+    login()
