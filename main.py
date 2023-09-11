@@ -116,7 +116,7 @@ def main(email, password):
         if event == "del":
             delete()
         if event == "pass":
-            if values["monday"]:   # Start here Take new away and test End goal is to make each message an email!!
+            if values["monday"]:   # TODO: JARED: ADD THE AUTOMATION FOR THE EMAIL!! 
                 print("")
                 print("SUBJECT: Mondays Clients")
                 print(values["_client_"])
