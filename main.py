@@ -13,8 +13,10 @@ saturday = []
 def delete():
     layout = [
         [sg.Text("")],
-        [sg.Text("Enter the day:", size=(20, 1)), sg.Input(key="_day_", do_not_clear=True)],
-        [sg.Text("Enter the email:", size=(20, 1)), sg.Input(key="_number_", do_not_clear=True)],
+        [sg.Text("Enter the day:", size=(20, 1)), 
+         sg.Input(key="_day_", do_not_clear=True)],
+        [sg.Text("Enter the email:", size=(20, 1)), 
+         sg.Input(key="_number_", do_not_clear=True)],
         [sg.Text("")],
         [sg.Button("Enter", key="run_del", size=(100, 1))]
     ]
@@ -44,8 +46,10 @@ def delete():
 def add():
     layout = [
         [sg.Text("")],
-        [sg.Text("Enter the day:", size=(20, 1)), sg.Input(key="_day_", do_not_clear=True)],
-        [sg.Text("Enter the email:", size=(20, 1)), sg.Input(key="_number_", do_not_clear=True)],
+        [sg.Text("Enter the day:", size=(20, 1)), 
+         sg.Input(key="_day_", do_not_clear=True)],
+        [sg.Text("Enter the email:", size=(20, 1)), 
+         sg.Input(key="_number_", do_not_clear=True)],
         [sg.Text("")],
         [sg.Button("Enter", key="run_add", size=(100, 1))]
     ]
@@ -92,8 +96,8 @@ def add():
 def main(email, password):
     print(email, password)
     layout = [
-        [sg.Text("Message for client: ", size=(15, 1)), sg.Multiline(size=(50, 3), key="_client_", do_not_clear=True),
-         sg.Button("Enter", key="pass", size=(23, 1))],
+        [sg.Text("Message for client: ", size=(15, 1)), sg.Multiline(size=(50, 3), 
+                        key="_client_", do_not_clear=True), sg.Button("Enter", key="pass", size=(23, 1))],
         [sg.Text("")],
         [sg.Text("DAYS OF THE WEEK", size=(100, 1), justification='c')],
         [sg.Radio("Monday", "RADIO", key="monday", size=(11, 1)),
@@ -189,8 +193,8 @@ def login():
         [sg.Text("")],
         [sg.Button("Enter", size=(23, 1), key="pass")],
     ]
-    window = sg.Window("EMAIL LOGIN", element_justification="c", text_justification="c", size=(600, 200), modal=True)\
-        .Layout(layout)
+    window = sg.Window("EMAIL LOGIN", element_justification="c", text_justification="c", 
+                       size=(600, 200), modal=True).Layout(layout)
     while True:
         event, values = window.read()
         if event == "Exit" or event == sg.WIN_CLOSED:
