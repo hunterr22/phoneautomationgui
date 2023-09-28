@@ -1,3 +1,5 @@
+import sqlite3
+
 import PySimpleGUI as sg
 import database_interface
 
@@ -74,60 +76,40 @@ def main(email, password):
             delete()
         if event == "pass":
             if values["monday"]:
-                with open("monday.txt", "r") as file:
-                    li = file.readlines()
-                    rep = []
-                    for x in li:
-                        rep.append(x.replace("\n", ""))
-                    for i in rep:
-                        print(i)
+                    con = sqlite3.connect('add_info.db')
+                    cursor = con.cursor()
+                    rows = cursor.execute("SELECT * FROM ADD_INFO WHERE DAY='monday';")
+                    for row in rows:
+                        print(row[0])
+                    cursor.close()
             if values["tuesday"]:
-                print("")
-                print("SUBJECT: Tuesday Clients")
-                print(values["_client_"])
-                print("")
-                with open("tuesday.txt", "r") as file:
-                    li = file.readlines()
-                    rep = []
-                    for x in li:
-                        rep.append(x.replace("\n", ""))
-                    print(rep)
+                con = sqlite3.connect('add_info.db')
+                cursor = con.cursor()
+                rows = cursor.execute("SELECT * FROM ADD_INFO WHERE DAY='tuesday';")
+                for row in rows:
+                    print(row[0])
+                cursor.close()
             if values["wednesday"]:
-                print("")
-                print("SUBJECT: Wednesday Clients")
-                print(values["_client_"])
-                print("")
-                with open("wednesday.txt", "r") as file:
-                    li = file.readlines()
-                    rep = []
-                    for x in li:
-                        rep.append(x.replace("\n", ""))
-                    for i in rep:
-                        print(i)
+                con = sqlite3.connect('add_info.db')
+                cursor = con.cursor()
+                rows = cursor.execute("SELECT * FROM ADD_INFO WHERE DAY='wednesday';")
+                for row in rows:
+                    print(row[0])
+                cursor.close()
             if values["thursday"]:
-                print("")
-                print("SUBJECT: Thursday Clients")
-                print(values["_client_"])
-                print("")
-                with open("thursday.txt", "r") as file:
-                    li = file.readlines()
-                    rep = []
-                    for x in li:
-                        rep.append(x.replace("\n", ""))
-                    for i in rep:
-                        print(i)
+                con = sqlite3.connect('add_info.db')
+                cursor = con.cursor()
+                rows = cursor.execute("SELECT * FROM ADD_INFO WHERE DAY='thursday';")
+                for row in rows:
+                    print(row[0])
+                cursor.close()
             if values["friday"]:
-                print("")
-                print("SUBJECT: Friday Clients")
-                print(values["_client_"])
-                print("")
-                with open("friday.txt", "r") as file:
-                    li = file.readlines()
-                    rep = []
-                    for x in li:
-                        rep.append(x.replace("\n", ""))
-                    for i in rep:
-                        print(i)
+                con = sqlite3.connect('add_info.db')
+                cursor = con.cursor()
+                rows = cursor.execute("SELECT * FROM ADD_INFO WHERE DAY='friday';")
+                for row in rows:
+                    print(row[0])
+                cursor.close()
     window.close()
 
 
